@@ -1,291 +1,751 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
+<html class="dark" lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .glass-card {
-            background: rgba(32, 31, 31, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .amber-glow:hover {
-            box-shadow: 0 0 20px rgba(255, 184, 0, 0.3);
-        }
-    </style>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "error-container": "#93000a",
-                        "surface-dim": "#131313",
-                        "secondary-fixed-dim": "#e9c349",
-                        "primary-container": "#ffb800",
-                        "on-error": "#690005",
-                        "secondary-container": "#af8d11",
-                        "on-tertiary-fixed": "#001f27",
-                        "surface-container": "#201f1f",
-                        "on-tertiary": "#003641",
-                        "surface-container-lowest": "#0e0e0e",
-                        "on-secondary-fixed-variant": "#574500",
-                        "on-tertiary-fixed-variant": "#004e5d",
-                        "background": "#131313",
-                        "on-background": "#e5e2e1",
-                        "inverse-surface": "#e5e2e1",
-                        "surface": "#131313",
-                        "outline": "#9e8f78",
-                        "error": "#ffb4ab",
-                        "primary": "#ffdca1",
-                        "on-error-container": "#ffdad6",
-                        "primary-fixed-dim": "#ffba20",
-                        "on-primary-container": "#6b4c00",
-                        "surface-bright": "#3a3939",
-                        "tertiary-fixed-dim": "#17d8ff",
-                        "on-primary": "#412d00",
-                        "outline-variant": "#514532",
-                        "surface-container-high": "#2a2a2a",
-                        "tertiary-container": "#00d7fe",
-                        "surface-tint": "#ffba20",
-                        "primary-fixed": "#ffdea8",
-                        "secondary": "#e9c349",
-                        "surface-container-low": "#1c1b1b",
-                        "on-surface-variant": "#d5c4ab",
-                        "surface-container-highest": "#353534",
-                        "on-tertiary-container": "#005a6b",
-                        "on-surface": "#e5e2e1",
-                        "on-primary-fixed": "#271900",
-                        "secondary-fixed": "#ffe088",
-                        "surface-variant": "#353534",
-                        "on-secondary": "#3c2f00",
-                        "tertiary": "#abebff",
-                        "tertiary-fixed": "#b0ecff",
-                        "on-secondary-fixed": "#241a00",
-                        "on-primary-fixed-variant": "#5e4200",
-                        "inverse-primary": "#7c5800",
-                        "on-secondary-container": "#342800",
-                        "inverse-on-surface": "#313030"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "gutter": "24px",
-                        "margin-desktop": "64px",
-                        "unit": "8px",
-                        "margin-mobile": "20px",
-                        "container-max": "1280px"
-                    },
-                    "fontFamily": {
-                        "headline-xl": ["Playfair Display"],
-                        "label-sm": ["Montserrat"],
-                        "headline-xl-mobile": ["Playfair Display"],
-                        "headline-md": ["Playfair Display"],
-                        "label-lg": ["Montserrat"],
-                        "body-md": ["Montserrat"],
-                        "headline-lg": ["Playfair Display"],
-                        "body-lg": ["Montserrat"]
-                    },
-                    "fontSize": {
-                        "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
-                        "headline-xl-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
-                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                        "label-lg": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
-                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
-                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}]
-                    }
-                },
-            },
-        }
-    </script>
+  * { box-sizing: border-box; }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+  }
+  .glass-card {
+    background: rgba(32, 31, 31, 0.65);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .glass-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(255, 184, 0, 0.18);
+  }
+  .cart-sidebar {
+    position: fixed; inset-y: 0; right: 0;
+    width: 360px; z-index: 60;
+    background: rgba(21, 21, 21, 0.97);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255,255,255,0.08);
+    box-shadow: -8px 0 40px rgba(0,0,0,0.5);
+    display: flex; flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  }
+  .cart-sidebar.open { transform: translateX(0); }
+  .cart-badge {
+    position: absolute; top: -6px; right: -6px;
+    background: #ffb800; color: #1a1000;
+    width: 18px; height: 18px; border-radius: 50%;
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transform: scale(0);
+    transition: all 0.2s ease;
+  }
+  .cart-badge.visible { opacity: 1; transform: scale(1); }
+  .cart-item-enter {
+    animation: slideIn 0.3s ease forwards;
+  }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  .qty-btn {
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 1px solid rgba(255,184,0,0.3);
+    background: rgba(255,184,0,0.08);
+    color: #ffb800; font-size: 16px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .qty-btn:hover { background: rgba(255,184,0,0.2); }
+  .category-btn {
+    padding: 10px 20px; border-radius: 9999px;
+    font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 13px;
+    color: #d5c4ab; cursor: pointer; transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+  .category-btn:hover { background: rgba(255,255,255,0.08); }
+  .category-btn.active {
+    background: #ffb800; color: #271900; border-color: #ffb800;
+  }
+  .whatsapp-btn {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff; font-family: 'Montserrat', sans-serif;
+    font-weight: 700; font-size: 14px;
+    padding: 16px; border-radius: 14px; border: none;
+    width: 100%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap-x: 8px;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.25);
+  }
+  .whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.4); }
+  .whatsapp-btn:active { transform: scale(0.98); }
+  .add-btn {
+    width: 100%; border: 1px solid rgba(255,184,0,0.25);
+    background: rgba(255,184,0,0.07); color: #ffb800;
+    font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 13px;
+    padding: 12px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    cursor: pointer; transition: all 0.25s;
+    letter-spacing: 0.05em;
+  }
+  .add-btn:hover { background: #ffb800; color: #271900; }
+  .add-btn:active { transform: scale(0.97); }
+  .in-cart-controls {
+    display: none; width: 100%; align-items: center; justify-content: center; gap: 16px;
+    background: rgba(255,184,0,0.1); border: 1px solid rgba(255,184,0,0.3);
+    border-radius: 10px; padding: 10px;
+  }
+  .search-input {
+    width: 100%; padding: 14px 24px; border-radius: 9999px;
+    background: rgba(32,31,31,0.8); border: 1px solid rgba(158,143,120,0.3);
+    color: #e5e2e1; font-family: 'Montserrat', sans-serif;
+    outline: none; transition: border 0.2s;
+  }
+  .search-input:focus { border-color: #ffb800; }
+  .search-input::placeholder { color: #9e8f78; }
+  body { background: #131313; color: #e5e2e1; font-family: 'Montserrat', sans-serif; }
+  .overlay {
+    display: none; position: fixed; inset: 0; z-index: 55;
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(2px);
+  }
+  .overlay.show { display: block; }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,184,0,0.3); border-radius: 99px; }
+  .empty-cart { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 12px; opacity: 0.5; }
+</style>
 </head>
-<body class="bg-background text-on-background min-h-screen">
-<!-- TopNavBar -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-3xl shadow-xl border-b border-white/10">
-<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
-<div class="font-headline-md text-headline-md font-bold tracking-tight text-primary dark:text-primary">
-                Stellar Heights
-            </div>
-<nav class="hidden md:flex gap-8 items-center">
-<a class="font-label-lg text-label-lg text-primary dark:text-primary relative after:content-[''] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-primary after:rounded-full after:shadow-[0_0_8px_#ffb800]" href="#">Menu</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">About</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Gallery</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Events</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Contact</a>
-</nav>
-<div class="flex items-center gap-6">
-<div class="hidden sm:flex gap-4">
-<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">shopping_cart</span>
-<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">person</span>
-</div>
-<button class="bg-primary-container text-on-primary-container font-label-lg text-label-lg px-6 py-2 rounded-lg font-semibold active:scale-95 transition-transform duration-200">
-                    Book a Table
-                </button>
-</div>
-</div>
+<body>
+
+<!-- Header -->
+<header style="position:fixed;top:0;width:100%;z-index:50;background:rgba(19,19,19,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.07);box-shadow:0 4px 24px rgba(0,0,0,0.4);">
+  <div style="max-width:1280px;margin:auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;height:70px;">
+    <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#ffb800;">Stellar Heights</div>
+    <nav style="display:flex;gap:28px;align-items:center;">
+      <a href="#" style="color:#ffb800;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.08em;">HOME</a>
+      <a href="#" style="color:#ffb800;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.08em;border-bottom:2px solid #ffb800;padding-bottom:2px;">MENU</a>
+      <a href="#" style="color:#9e8f78;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.08em;">GALLERY</a>
+      <a href="#" style="color:#9e8f78;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.08em;">CONTACT</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <div style="position:relative;cursor:pointer;" id="cartToggle">
+        <span class="material-symbols-outlined" style="color:#d5c4ab;font-size:26px;">shopping_cart</span>
+        <div class="cart-badge" id="cartBadge">0</div>
+      </div>
+      <span class="material-symbols-outlined" style="color:#d5c4ab;font-size:26px;cursor:pointer;">person</span>
+      <button style="background:#ffb800;color:#271900;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;padding:10px 22px;border-radius:8px;border:none;cursor:pointer;letter-spacing:0.06em;">BOOK A TABLE</button>
+    </div>
+  </div>
 </header>
-<!-- Sidebar / Cart System (SideNavBar) -->
-<aside class="fixed inset-y-0 right-0 w-80 z-[60] bg-surface-container-highest/95 dark:bg-surface-container-highest/95 backdrop-blur-2xl border-l border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.5)] flex flex-col h-full py-8 translate-x-full transition-all md:translate-x-0">
-<div class="px-6 mb-8">
-<div class="flex items-center gap-4 mb-2">
-<div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
-<span class="material-symbols-outlined text-primary" data-weight="fill">shopping_cart</span>
-</div>
-<div>
-<h2 class="font-headline-md text-headline-md text-primary leading-tight">Your Selection</h2>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Exquisite tastes await</p>
-</div>
-</div>
-</div>
-<div class="flex-1 overflow-y-auto px-4 space-y-4">
-<!-- Cart Item 1 -->
-<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant/30 flex gap-4">
-<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
-<img alt="Burger" class="w-full h-full object-cover" data-alt="A close-up of a premium, gourmet Zinger burger with crispy chicken fillet, vibrant green lettuce, and artisanal sauce between toasted brioche buns. The lighting is dramatic and warm, reflecting a luxurious nocturnal lounge vibe with deep blacks and rich golden amber tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOVxKdsvdqBelPuCrdeGzJ0W-73mZRRkSCFY9IQHZVp6AKkoYL6qfR__4Vak8vqzwF0sbQy4ANxn_dUSj5_Im0ZuFjCRdk8xmgfrBIRKjqDC0oqwPBV1Hx_U_-2TCplbH-gWuLvzM7_XqaaQrZkbeEN3wCAggD0luDfjZeuzPQf-BKCwTbJPY6EbgYnwj8A1akmiqyxsVRaKuMipQUpECY8Jc1UNePIq21NJrpk1uDhpMdiTfNbFA3vOSk-Sgk_Vsyp2hTzkCGnbr5"/>
-</div>
-<div class="flex-1">
-<h4 class="font-label-lg text-label-lg text-on-surface">Zinger Burger</h4>
-<p class="font-label-sm text-label-sm text-primary">Rs. 1,225 x 2</p>
-<div class="flex justify-between items-center mt-2">
-<div class="flex items-center gap-2">
-<button class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-primary border border-primary/20">-</button>
-<span class="font-label-lg text-label-lg">2</span>
-<button class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-primary border border-primary/20">+</button>
-</div>
-<span class="material-symbols-outlined text-error text-sm cursor-pointer">delete</span>
-</div>
-</div>
-</div>
-</div>
-<div class="mt-auto px-6 pt-6 border-t border-outline-variant/30 bg-surface-container-highest/80 backdrop-blur-sm">
-<div class="flex justify-between items-center mb-6">
-<span class="font-body-md text-body-md text-on-surface-variant">Total Amount</span>
-<span class="font-headline-md text-headline-md text-primary">Rs. 2,450</span>
-</div>
-<button class="w-full bg-primary-container text-on-primary-container font-label-lg text-label-lg py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-[0_0_20px_#ffb80066] transition-all duration-300">
-<span class="material-symbols-outlined">message</span>
-                Order on WhatsApp
-            </button>
-</div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<!-- Cart Sidebar -->
+<aside class="cart-sidebar" id="cartSidebar">
+  <!-- Cart Header -->
+  <div style="padding:24px 24px 16px;border-bottom:1px solid rgba(255,255,255,0.07);">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:40px;height:40px;border-radius:50%;background:rgba(255,184,0,0.12);border:1px solid rgba(255,184,0,0.25);display:flex;align-items:center;justify-content:center;">
+          <span class="material-symbols-outlined" style="color:#ffb800;font-size:20px;">shopping_cart</span>
+        </div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;color:#ffb800;font-weight:700;">Your Selection</div>
+          <div style="font-size:11px;color:#9e8f78;letter-spacing:0.06em;margin-top:1px;">EXQUISITE TASTES AWAIT</div>
+        </div>
+      </div>
+      <button onclick="closeCart()" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:#d5c4ab;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;">&times;</button>
+    </div>
+  </div>
+
+  <!-- Cart Items -->
+  <div style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;">
+    <div class="empty-cart" id="emptyCart" style="flex:1;">
+      <span class="material-symbols-outlined" style="font-size:56px;color:#9e8f78;">shopping_basket</span>
+      <p style="color:#9e8f78;font-size:14px;">Your cart is empty</p>
+      <p style="color:#514532;font-size:12px;">Add items from the menu</p>
+    </div>
+    <div id="cartItems"></div>
+  </div>
+
+  <!-- Cart Footer -->
+  <div style="padding:20px 24px;border-top:1px solid rgba(255,255,255,0.07);background:rgba(14,14,14,0.8);">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+      <span style="color:#9e8f78;font-size:13px;">Subtotal</span>
+      <span id="cartSubtotal" style="color:#e5e2e1;font-size:13px;">Rs. 0</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+      <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;color:#d5c4ab;">Total Amount</span>
+      <span id="cartTotal" style="font-family:'Playfair Display',serif;font-size:26px;color:#ffb800;font-weight:700;">Rs. 0</span>
+    </div>
+    <button class="whatsapp-btn" onclick="sendWhatsApp()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Order via WhatsApp
+    </button>
+    <p style="text-align:center;color:#514532;font-size:11px;margin-top:10px;">Your order will be sent as a message</p>
+  </div>
 </aside>
-<main class="pt-32 md:mr-80 min-h-screen">
-<!-- Hero Section & Filter Bar -->
-<section class="px-gutter max-w-container-max mx-auto mb-12">
-<h1 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary mb-8 text-center">Nocturnal Flavors</h1>
-<!-- Category Filter Bar -->
-<div class="flex flex-wrap justify-center gap-4 mb-12">
-<button class="bg-primary/10 text-primary border-r-4 border-primary px-6 py-3 flex items-center gap-2 font-label-lg text-label-lg">
-<span class="material-symbols-outlined" data-weight="fill">lunch_dining</span> Burgers
-                </button>
-<button class="text-on-surface-variant hover:bg-white/5 px-6 py-3 transition-all flex items-center gap-2 font-label-lg text-label-lg">
-<span class="material-symbols-outlined">local_pizza</span> Pizza
-                </button>
-<button class="text-on-surface-variant hover:bg-white/5 px-6 py-3 transition-all flex items-center gap-2 font-label-lg text-label-lg">
-<span class="material-symbols-outlined">outdoor_grill</span> BBQ
-                </button>
-<button class="text-on-surface-variant hover:bg-white/5 px-6 py-3 transition-all flex items-center gap-2 font-label-lg text-label-lg">
-<span class="material-symbols-outlined">coffee</span> Coffee
-                </button>
-<button class="text-on-surface-variant hover:bg-white/5 px-6 py-3 transition-all flex items-center gap-2 font-label-lg text-label-lg">
-<span class="material-symbols-outlined">icecream</span> Desserts
-                </button>
-<button class="text-on-surface-variant hover:bg-white/5 px-6 py-3 transition-all flex items-center gap-2 font-label-lg text-label-lg">
-<span class="material-symbols-outlined">local_bar</span> Drinks
-                </button>
-</div>
-</section>
-<!-- Menu Grid -->
-<section class="px-gutter max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20">
-<!-- Item 1 -->
-<div class="glass-card rounded-2xl overflow-hidden amber-glow transition-all duration-500 group flex flex-col h-full">
-<div class="h-64 overflow-hidden relative">
-<img alt="Gourmet Burger" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A gourmet artisan burger presented in a luxury setting. The burger features triple-layered molten cheese, caramelized onions, and a thick prime beef patty, served on a dark stone platter. Ambient amber string lights blur in the background, creating a sophisticated rooftop lounge atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfJ3lrG1vbawfTXgnhW9eMflULMm1cOACeKU-G6WPRAShubnKvz-TGazTFqOfJNK2xYDuZZmqj0bPoRlH75KMYbT3ViM5A9EFlzWK1saGVXlkRAjMbyNX0kCF2IgiSF2WMTRK6MnDdv9eY_zAuxK2I8lOiCFUoj0HOP7goHVsevq4t6BmE8WJ7wXTFz_I8L-hPOjrZBf5XOQ2DaW-IUiLQYx3BB7yRACcv_3iZJei_WfAB1wYvNxNrMsvN_asu450Z51z6X_2FPhIb"/>
-<div class="absolute top-4 right-4 bg-primary-container text-on-primary-container font-label-sm text-label-sm px-3 py-1 rounded-full shadow-lg">Chef's Choice</div>
-</div>
-<div class="p-6 flex flex-col flex-1">
-<div class="flex justify-between items-start mb-2">
-<h3 class="font-headline-md text-headline-md text-on-surface leading-none">Midnight Zinger</h3>
-<span class="font-label-lg text-label-lg text-primary">Rs. 1,225</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-1">Buttermilk-fried spicy chicken fillet, smoked gouda, sriracha mayo, and house-pickled slaw on a charcoal brioche bun.</p>
-<div class="flex gap-2 mb-6">
-<span class="bg-primary/10 text-primary font-label-sm text-label-sm px-2 py-1 rounded border border-primary/20">Spicy</span>
-<span class="bg-primary/10 text-primary font-label-sm text-label-sm px-2 py-1 rounded border border-primary/20">Chef Special</span>
-</div>
-<button class="w-full bg-primary/10 border border-primary/30 text-primary font-label-lg text-label-lg py-3 rounded-lg hover:bg-primary hover:text-on-primary transition-all duration-300 active:scale-95 flex items-center justify-center gap-2">
-<span class="material-symbols-outlined">add_shopping_cart</span>
-                        Add to Cart
-                    </button>
-</div>
-</div>
-<!-- Item 2 -->
-<div class="glass-card rounded-2xl overflow-hidden amber-glow transition-all duration-500 group flex flex-col h-full">
-<div class="h-64 overflow-hidden relative">
-<img alt="Classic Cheeseburger" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A high-end classic cheeseburger with perfectly melted cheddar cheese dripping over a flame-grilled wagyu beef patty. The burger is topped with fresh heirloom tomatoes and organic lettuce. The scene is lit with warm, intimate light against a deep charcoal background, exuding premium quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd2F2eQbMOq4Hd-fmAjh6Se0KQB9YCUms87ZKkSI99SQLffN3OW-mz-qmKJDS-4VFyzug6mwD8xDpOOXajD0tOPwcR59RXTFZAkJmJ0Kg74LaGEFPET7ezmvGHsdJ-VZFM_GADyPvFogywxeOyQsxe2ffPJXHjEEjqyy-pGjES2_39pPcBaQTJ6h9G3IjiBP2ge47sEXyjaRXHV-Vd7urjABfz3S9s48BsOHgiCemaAltIhn3LzLwkUh_M4JwEatbtinBPqIpRnf0D"/>
-</div>
-<div class="p-6 flex flex-col flex-1">
-<div class="flex justify-between items-start mb-2">
-<h3 class="font-headline-md text-headline-md text-on-surface leading-none">Stellar Classic</h3>
-<span class="font-label-lg text-label-lg text-primary">Rs. 1,450</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-1">Double Wagyu beef smash patties, aged cheddar, truffle aioli, and caramelized balsamic onions.</p>
-<div class="flex gap-2 mb-6">
-<span class="bg-primary/10 text-primary font-label-sm text-label-sm px-2 py-1 rounded border border-primary/20">Bestseller</span>
-</div>
-<button class="w-full bg-primary/10 border border-primary/30 text-primary font-label-lg text-label-lg py-3 rounded-lg hover:bg-primary hover:text-on-primary transition-all duration-300 active:scale-95 flex items-center justify-center gap-2">
-<span class="material-symbols-outlined">add_shopping_cart</span>
-                        Add to Cart
-                    </button>
-</div>
-</div>
-<!-- Item 3 -->
-<div class="glass-card rounded-2xl overflow-hidden amber-glow transition-all duration-500 group flex flex-col h-full">
-<div class="h-64 overflow-hidden relative">
-<img alt="Smokehouse Burger" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A dramatic presentation of a smoked BBQ burger with crispy onion rings stacked inside. Smoke gently curls around the dish, which sits on a dark mahogany table. The lighting mimics a setting sun, with rich amber highlights and deep velvet shadows, creating an atmosphere of exclusive dining." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJD9ZGDy6Xw0KAhHY8e82ugtBk-4iz_KhAU1Yicso_lWNhHvcabAXnm-mgK2dOrXxjfVYGhWzFYmvZPq7cQIFFiH8S62eCqUS1-k1gwOhJ-JOX5DYeHhH9nef-Ki94wwdHt6q7EqN_8rJns0Ct8M9Rn8GBeTBeUPwBMghQFm8P3NsRi_Vf6ytZH_aup9RO_YbohYWKrmOTfvvbRC6_p2UZ-ivs41ZOirUkWOzH81rhpzQIyuepm6gQITYX8-6tcfx046Ve9SYdez_n"/>
-</div>
-<div class="p-6 flex flex-col flex-1">
-<div class="flex justify-between items-start mb-2">
-<h3 class="font-headline-md text-headline-md text-on-surface leading-none">Smokehouse BBQ</h3>
-<span class="font-label-lg text-label-lg text-primary">Rs. 1,650</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-1">Hickory smoked brisket topping a beef patty, bourbon BBQ sauce, onion rings, and smoked pepper jack cheese.</p>
-<div class="flex gap-2 mb-6">
-<span class="bg-primary/10 text-primary font-label-sm text-label-sm px-2 py-1 rounded border border-primary/20">Smoky</span>
-</div>
-<button class="w-full bg-primary/10 border border-primary/30 text-primary font-label-lg text-label-lg py-3 rounded-lg hover:bg-primary hover:text-on-primary transition-all duration-300 active:scale-95 flex items-center justify-center gap-2">
-<span class="material-symbols-outlined">add_shopping_cart</span>
-                        Add to Cart
-                    </button>
-</div>
-</div>
-</section>
+
+<!-- Main Content -->
+<main style="padding-top:100px;min-height:100vh;">
+
+  <!-- Menu Hero Section -->
+  <section style="max-width:860px;margin:0 auto;padding:40px 24px 32px;text-align:center;">
+    <p style="color:#ffb800;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;margin-bottom:12px;">Our Signature Menu</p>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(36px,6vw,60px);font-weight:700;color:#ffdca1;line-height:1.15;margin-bottom:16px;">Crafted For Every Craving</h1>
+    <p style="color:#9e8f78;font-size:16px;line-height:1.7;max-width:560px;margin:0 auto 40px;">Explore our chef-curated dishes, handcrafted drinks, and signature favorites — designed for an unforgettable café experience.</p>
+
+    <!-- Search -->
+    <div style="max-width:520px;margin:0 auto 32px;position:relative;">
+      <span class="material-symbols-outlined" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);color:#9e8f78;font-size:20px;">search</span>
+      <input type="text" placeholder="Search your favourite dish..." class="search-input" id="searchInput" style="padding-left:50px;" oninput="filterMenu()"/>
+    </div>
+  </section>
+
+  <!-- Category Tabs -->
+  <div style="position:sticky;top:70px;z-index:40;background:rgba(19,19,19,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:12px 24px;">
+    <div style="max-width:860px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;">
+      <button class="category-btn active" onclick="filterCategory('all', this)">All Items</button>
+      <button class="category-btn" onclick="filterCategory('burgers', this)">🍔 Burgers</button>
+      <button class="category-btn" onclick="filterCategory('pizza', this)">🍕 Pizza</button>
+      <button class="category-btn" onclick="filterCategory('bbq', this)">🔥 BBQ</button>
+      <button class="category-btn" onclick="filterCategory('coffee', this)">☕ Coffee</button>
+      <button class="category-btn" onclick="filterCategory('desserts', this)">🍮 Desserts</button>
+      <button class="category-btn" onclick="filterCategory('drinks', this)">🥤 Drinks</button>
+    </div>
+  </div>
+
+  <!-- Menu Sections -->
+  <div style="max-width:1200px;margin:0 auto;padding:40px 24px 80px;">
+
+    <!-- Section: Burgers -->
+    <div class="menu-section" data-category="burgers">
+      <h2 style="font-family:'Playfair Display',serif;font-size:30px;color:#ffb800;margin-bottom:8px;">Featured Burgers</h2>
+      <p style="color:#514532;font-size:13px;margin-bottom:32px;letter-spacing:0.06em;">PRIME CUTS · ARTISAN BUNS · SIGNATURE SAUCES</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px;justify-items:center;">
+
+        <!-- Card 1 -->
+        <div class="glass-card" style="border-radius:20px;overflow:hidden;width:100%;max-width:360px;display:flex;flex-direction:column;" data-name="Midnight Zinger" data-price="1225" data-category="burgers">
+          <div style="height:220px;overflow:hidden;position:relative;">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfJ3lrG1vbawfTXgnhW9eMflULMm1cOACeKU-G6WPRAShubnKvz-TGazTFqOfJNK2xYDuZZmqj0bPoRlH75KMYbT3ViM5A9EFlzWK1saGVXlkRAjMbyNX0kCF2IgiSF2WMTRK6MnDdv9eY_zAuxK2I8lOiCFUoj0HOP7goHVsevq4t6BmE8WJ7wXTFz_I8L-hPOjrZBf5XOQ2DaW-IUiLQYx3BB7yRACcv_3iZJei_WfAB1wYvNxNrMsvN_asu450Z51z6X_2FPhIb" alt="Midnight Zinger" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"/>
+            <div style="position:absolute;top:14px;right:14px;background:#ffb800;color:#271900;font-size:10px;font-weight:700;padding:4px 12px;border-radius:99px;letter-spacing:0.08em;">CHEF'S CHOICE</div>
+          </div>
+          <div style="padding:22px;flex:1;display:flex;flex-direction:column;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+              <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:#e5e2e1;font-weight:600;">Midnight Zinger</h3>
+              <span style="color:#ffb800;font-weight:700;font-size:16px;white-space:nowrap;margin-left:8px;">Rs. 1,225</span>
+            </div>
+            <p style="color:#9e8f78;font-size:13px;line-height:1.65;margin-bottom:16px;flex:1;">Buttermilk-fried spicy chicken fillet, smoked gouda, sriracha mayo, and house-pickled slaw on a charcoal brioche bun.</p>
+            <div style="display:flex;gap:6px;margin-bottom:18px;">
+              <span style="background:rgba(255,184,0,0.08);color:#ffb800;font-size:10px;font-weight:600;padding:3px 10px;border-radius:4px;border:1px solid rgba(255,184,0,0.2);letter-spacing:0.05em;">SPICY</span>
+              <span style="background:rgba(255,184,0,0.08);color:#ffb800;font-size:10px;font-weight:600;padding:3px 10px;border-radius:4px;border:1px solid rgba(255,184,0,0.2);letter-spacing:0.05em;">CHEF SPECIAL</span>
+            </div>
+            <div class="card-actions">
+              <button class="add-btn" onclick="addToCart(this, 'MidnightZinger', 'Midnight Zinger', 1225)">
+                <span class="material-symbols-outlined" style="font-size:18px;">add_shopping_cart</span> Add to Cart
+              </button>
+              <div class="in-cart-controls" id="controls-MidnightZinger">
+                <button class="qty-btn" onclick="changeQty('MidnightZinger', 'Midnight Zinger', 1225, -1)">−</button>
+                <span style="color:#ffb800;font-weight:700;font-size:16px;min-width:28px;text-align:center;" id="qty-MidnightZinger">1</span>
+                <button class="qty-btn" onclick="changeQty('MidnightZinger', 'Midnight Zinger', 1225, 1)">+</button>
+                <span style="color:#9e8f78;font-size:12px;margin-left:4px;" id="subtotal-MidnightZinger">Rs. 1,225</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card" style="border-radius:20px;overflow:hidden;width:100%;max-width:360px;display:flex;flex-direction:column;" data-name="Stellar Classic" data-price="1450" data-category="burgers">
+          <div style="height:220px;overflow:hidden;position:relative;">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd2F2eQbMOq4Hd-fmAjh6Se0KQB9YCUms87ZKkSI99SQLffN3OW-mz-qmKJDS-4VFyzug6mwD8xDpOOXajD0tOPwcR59RXTFZAkJmJ0Kg74LaGEFPET7ezmvGHsdJ-VZFM_GADyPvFogywxeOyQsxe2ffPJXHjEEjqyy-pGjES2_39pPcBaQTJ6h9G3IjiBP2ge47sEXyjaRXHV-Vd7urjABfz3S9s48BsOHgiCemaAltIhn3LzLwkUh_M4JwEatbtinBPqIpRnf0D" alt="Stellar Classic" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"/>
+            <div style="position:absolute;top:14px;right:14px;background:#e9c349;color:#241a00;font-size:10px;font-weight:700;padding:4px 12px;border-radius:99px;letter-spacing:0.08em;">BESTSELLER</div>
+          </div>
+          <div style="padding:22px;flex:1;display:flex;flex-direction:column;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+              <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:#e5e2e1;font-weight:600;">Stellar Classic</h3>
+              <span style="color:#ffb800;font-weight:700;font-size:16px;white-space:nowrap;margin-left:8px;">Rs. 1,450</span>
+            </div>
+            <p style="color:#9e8f78;font-size:13px;line-height:1.65;margin-bottom:16px;flex:1;">Double Wagyu beef smash patties, aged cheddar, truffle aioli, and caramelized balsamic onions.</p>
+            <div style="display:flex;gap:6px;margin-bottom:18px;">
+              <span style="background:rgba(255,184,0,0.08);color:#ffb800;font-size:10px;font-weight:600;padding:3px 10px;border-radius:4px;border:1px solid rgba(255,184,0,0.2);letter-spacing:0.05em;">BESTSELLER</span>
+            </div>
+            <div class="card-actions">
+              <button class="add-btn" onclick="addToCart(this, 'StellarClassic', 'Stellar Classic', 1450)">
+                <span class="material-symbols-outlined" style="font-size:18px;">add_shopping_cart</span> Add to Cart
+              </button>
+              <div class="in-cart-controls" id="controls-StellarClassic">
+                <button class="qty-btn" onclick="changeQty('StellarClassic', 'Stellar Classic', 1450, -1)">−</button>
+                <span style="color:#ffb800;font-weight:700;font-size:16px;min-width:28px;text-align:center;" id="qty-StellarClassic">1</span>
+                <button class="qty-btn" onclick="changeQty('StellarClassic', 'Stellar Classic', 1450, 1)">+</button>
+                <span style="color:#9e8f78;font-size:12px;margin-left:4px;" id="subtotal-StellarClassic">Rs. 1,450</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card" style="border-radius:20px;overflow:hidden;width:100%;max-width:360px;display:flex;flex-direction:column;" data-name="Smokehouse BBQ" data-price="1650" data-category="burgers">
+          <div style="height:220px;overflow:hidden;position:relative;">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJD9ZGDy6Xw0KAhHY8e82ugtBk-4iz_KhAU1Yicso_lWNhHvcabAXnm-mgK2dOrXxjfVYGhWzFYmvZPq7cQIFFiH8S62eCqUS1-k1gwOhJ-JOX5DYeHhH9nef-Ki94wwdHt6q7EqN_8rJns0Ct8M9Rn8GBeTBeUPwBMghQFm8P3NsRi_Vf6ytZH_aup9RO_YbohYWKrmOTfvvbRC6_p2UZ-ivs41ZOirUkWOzH81rhpzQIyuepm6gQITYX8-6tcfx046Ve9SYdez_n" alt="Smokehouse BBQ" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"/>
+          </div>
+          <div style="padding:22px;flex:1;display:flex;flex-direction:column;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+              <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:#e5e2e1;font-weight:600;">Smokehouse BBQ</h3>
+              <span style="color:#ffb800;font-weight:700;font-size:16px;white-space:nowrap;margin-left:8px;">Rs. 1,650</span>
+            </div>
+            <p style="color:#9e8f78;font-size:13px;line-height:1.65;margin-bottom:16px;flex:1;">Hickory smoked brisket topping a beef patty, bourbon BBQ sauce, onion rings, and smoked pepper jack cheese.</p>
+            <div style="display:flex;gap:6px;margin-bottom:18px;">
+              <span style="background:rgba(255,184,0,0.08);color:#ffb800;font-size:10px;font-weight:600;padding:3px 10px;border-radius:4px;border:1px solid rgba(255,184,0,0.2);letter-spacing:0.05em;">SMOKY</span>
+              <span style="background:rgba(255,184,0,0.08);color:#ffb800;font-size:10px;font-weight:600;padding:3px 10px;border-radius:4px;border:1px solid rgba(255,184,0,0.2);letter-spacing:0.05em;">BBQ</span>
+            </div>
+            <div class="card-actions">
+              <button class="add-btn" onclick="addToCart(this, 'SmokehouseBBQ', 'Smokehouse BBQ', 1650)">
+                <span class="material-symbols-outlined" style="font-size:18px;">add_shopping_cart</span> Add to Cart
+              </button>
+              <div class="in-cart-controls" id="controls-SmokehouseBBQ">
+                <button class="qty-btn" onclick="changeQty('SmokehouseBBQ', 'Smokehouse BBQ', 1650, -1)">−</button>
+                <span style="color:#ffb800;font-weight:700;font-size:16px;min-width:28px;text-align:center;" id="qty-SmokehouseBBQ">1</span>
+                <button class="qty-btn" onclick="changeQty('SmokehouseBBQ', 'Smokehouse BBQ', 1650, 1)">+</button>
+                <span style="color:#9e8f78;font-size:12px;margin-left:4px;" id="subtotal-SmokehouseBBQ">Rs. 1,650</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Section: Pizza -->
+    <div class="menu-section" data-category="pizza" style="margin-top:60px;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:30px;color:#ffb800;margin-bottom:8px;">Stone-Baked Pizzas</h2>
+      <p style="color:#514532;font-size:13px;margin-bottom:32px;letter-spacing:0.06em;">WOOD FIRE · HAND-STRETCHED DOUGH · IMPORTED CHEESE</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px;justify-items:center;">
+
+        <div class="glass-card" style="border-radius:20px;overflow:hidden;width:100%;max-width:360px;display:flex;flex-direction:column;" data-name="Truffle Margherita" data-price="1850" data-category="pizza">
+          <div style="height:220px;overflow:hidden;position:relative;background:linear-gradient(135deg,#2a1800,#1a1000);">
+            <div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:80px;">🍕</div>
+          </div>
+          <div style="padding:22px;flex:1;display:flex;flex-direction:column;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+              <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:#e5e2e1;font-weight:600;">Truffle Margherita</h3>
+              <span style="color:#ffb800;font-weight:700;font-size:16px;white-space:nowrap;margin-left:8px;">Rs. 1,850</span>
+            </div>
+            <p style="color:#9e8f78;font-size:13px;line-height:1.65;margin-bottom:16px;flex:1;">San Marzano tomatoes, buffalo mozzarella, fresh basil, and a generous drizzle of black truffle oil.</p>
+            <div style="display:flex;gap:6px;margin-bottom:18px;">
+              <span style="background:rgba(255,184,0,0.08);color:#ffb800;font-size:10px;font-weight:600;padding:3px 10px;border-radius:4px;border:1px solid rgba(255,184,0,0.2);letter-spacing:0.05em;">VEGETARIAN</span>
+              <span style="background:rgba(255,184,0,0.08);color:#ffb800;font-size:10px;font-weight:600;padding:3px 10px;border-radius:4px;border:1px solid rgba(255,184,0,0.2);letter-spacing:0.05em;">TRUFFLE</span>
+            </div>
+            <div class="card-actions">
+              <button class="add-btn" onclick="addToCart(this, 'TruffleMargherita', 'Truffle Margherita', 1850)">
+                <span class="material-symbols-outlined" style="font-size:18px;">add_shopping_cart</span> Add to Cart
+              </button>
+              <div class="in-cart-controls" id="controls-TruffleMargherita">
+                <button class="qty-btn" onclick="changeQty('TruffleMargherita', 'Truffle Margherita', 1850, -1)">−</button>
+                <span style="color:#ffb800;font-weight:700;font-size:16px;min-width:28px;text-align:center;" id="qty-TruffleMargherita">1</span>
+                <button class="qty-btn" onclick="changeQty('TruffleMargherita', 'Truffle Margherita', 1850, 1)">+</button>
+                <span style="color:#9e8f78;font-size:12px;margin-left:4px;" id="subtotal-TruffleMargherita">Rs. 1,850</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card" style="border-radius:20px;overflow:hidden;width:100%;max-width:360px;display:flex;flex-direction:column;" data-name="Spicy Pepperoni" data-price="1950" data-category="pizza">
+          <div style="height:220px;overflow:hidden;position:relative;background:linear-gradient(135deg,#2a0800,#1a0500);">
+            <div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:80px;">🍕</div>
+          </div>
+          <div style="padding:22px;flex:1;display:flex;flex-direction:column;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+              <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:#e5e2e1;font-weight:600;">Spicy Pepperoni</h3>
+              <span style="color:#ffb800;font-weight:700;font-size:16px;white-space:nowrap;margin-left:8px;">Rs. 1,950</span>
+            </div>
+            <p style="color:#9e8f78;font-size:13px;line-height:1.65;margin-bottom:16px;flex:1;">Double pepperoni, spicy jalapeños, crushed red pepper, mozzarella blend, and honey drizzle finish.</p>
+            <div style="display:flex;gap:6px;margin-bottom:18px;">
+              <span style="background:rgba(255,184,0,0.08);color:#ffb800;font-size:10px;font-weight:600;padding:3px 10px;border-radius:4px;border:1px solid rgba(255,184,0,0.2);letter-spacing:0.05em;">SPICY</span>
+            </div>
+            <div class="card-actions">
+              <button class="add-btn" onclick="addToCart(this, 'SpicyPepperoni', 'Spicy Pepperoni', 1950)">
+                <span class="material-symbols-outlined" style="font-size:18px;">add_shopping_cart</span> Add to Cart
+              </button>
+              <div class="in-cart-controls" id="controls-SpicyPepperoni">
+                <button class="qty-btn" onclick="changeQty('SpicyPepperoni', 'Spicy Pepperoni', 1950, -1)">−</button>
+                <span style="color:#ffb800;font-weight:700;font-size:16px;min-width:28px;text-align:center;" id="qty-SpicyPepperoni">1</span>
+                <button class="qty-btn" onclick="changeQty('SpicyPepperoni', 'Spicy Pepperoni', 1950, 1)">+</button>
+                <span style="color:#9e8f78;font-size:12px;margin-left:4px;" id="subtotal-SpicyPepperoni">Rs. 1,950</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Section: Drinks -->
+    <div class="menu-section" data-category="drinks" style="margin-top:60px;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:30px;color:#ffb800;margin-bottom:8px;">Signature Drinks</h2>
+      <p style="color:#514532;font-size:13px;margin-bottom:32px;letter-spacing:0.06em;">CRAFTED · FRESH · REFRESHING</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px;justify-items:center;">
+
+        <div class="glass-card" style="border-radius:20px;overflow:hidden;width:100%;max-width:360px;display:flex;flex-direction:column;" data-name="Stellar Lemonade" data-price="450" data-category="drinks">
+          <div style="height:220px;overflow:hidden;position:relative;background:linear-gradient(135deg,#1a1500,#0e1800);">
+            <div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:80px;">🍋</div>
+          </div>
+          <div style="padding:22px;flex:1;display:flex;flex-direction:column;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+              <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:#e5e2e1;font-weight:600;">Stellar Lemonade</h3>
+              <span style="color:#ffb800;font-weight:700;font-size:16px;white-space:nowrap;margin-left:8px;">Rs. 450</span>
+            </div>
+            <p style="color:#9e8f78;font-size:13px;line-height:1.65;margin-bottom:16px;flex:1;">Fresh-squeezed lemonade with mint, honey, and a splash of sparkling water.</p>
+            <div style="display:flex;gap:6px;margin-bottom:18px;">
+              <span style="background:rgba(255,184,0,0.08);color:#ffb800;font-size:10px;font-weight:600;padding:3px 10px;border-radius:4px;border:1px solid rgba(255,184,0,0.2);letter-spacing:0.05em;">FRESH</span>
+            </div>
+            <div class="card-actions">
+              <button class="add-btn" onclick="addToCart(this, 'StellarLemonade', 'Stellar Lemonade', 450)">
+                <span class="material-symbols-outlined" style="font-size:18px;">add_shopping_cart</span> Add to Cart
+              </button>
+              <div class="in-cart-controls" id="controls-StellarLemonade">
+                <button class="qty-btn" onclick="changeQty('StellarLemonade', 'Stellar Lemonade', 450, -1)">−</button>
+                <span style="color:#ffb800;font-weight:700;font-size:16px;min-width:28px;text-align:center;" id="qty-StellarLemonade">1</span>
+                <button class="qty-btn" onclick="changeQty('StellarLemonade', 'Stellar Lemonade', 450, 1)">+</button>
+                <span style="color:#9e8f78;font-size:12px;margin-left:4px;" id="subtotal-StellarLemonade">Rs. 450</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card" style="border-radius:20px;overflow:hidden;width:100%;max-width:360px;display:flex;flex-direction:column;" data-name="Cold Brew Coffee" data-price="650" data-category="coffee drinks">
+          <div style="height:220px;overflow:hidden;position:relative;background:linear-gradient(135deg,#0e0a00,#1a1000);">
+            <div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:80px;">☕</div>
+          </div>
+          <div style="padding:22px;flex:1;display:flex;flex-direction:column;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+              <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:#e5e2e1;font-weight:600;">Cold Brew Coffee</h3>
+              <span style="color:#ffb800;font-weight:700;font-size:16px;white-space:nowrap;margin-left:8px;">Rs. 650</span>
+            </div>
+            <p style="color:#9e8f78;font-size:13px;line-height:1.65;margin-bottom:16px;flex:1;">18-hour cold-steeped single-origin Ethiopian beans, served over crystal-clear ice.</p>
+            <div style="display:flex;gap:6px;margin-bottom:18px;">
+              <span style="background:rgba(255,184,0,0.08);color:#ffb800;font-size:10px;font-weight:600;padding:3px 10px;border-radius:4px;border:1px solid rgba(255,184,0,0.2);letter-spacing:0.05em;">COLD BREW</span>
+            </div>
+            <div class="card-actions">
+              <button class="add-btn" onclick="addToCart(this, 'ColdBrewCoffee', 'Cold Brew Coffee', 650)">
+                <span class="material-symbols-outlined" style="font-size:18px;">add_shopping_cart</span> Add to Cart
+              </button>
+              <div class="in-cart-controls" id="controls-ColdBrewCoffee">
+                <button class="qty-btn" onclick="changeQty('ColdBrewCoffee', 'Cold Brew Coffee', 650, -1)">−</button>
+                <span style="color:#ffb800;font-weight:700;font-size:16px;min-width:28px;text-align:center;" id="qty-ColdBrewCoffee">1</span>
+                <button class="qty-btn" onclick="changeQty('ColdBrewCoffee', 'Cold Brew Coffee', 650, 1)">+</button>
+                <span style="color:#9e8f78;font-size:12px;margin-left:4px;" id="subtotal-ColdBrewCoffee">Rs. 650</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Section: Desserts -->
+    <div class="menu-section" data-category="desserts" style="margin-top:60px;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:30px;color:#ffb800;margin-bottom:8px;">Sweet Finales</h2>
+      <p style="color:#514532;font-size:13px;margin-bottom:32px;letter-spacing:0.06em;">HOUSE-MADE · INDULGENT · UNFORGETTABLE</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px;justify-items:center;">
+
+        <div class="glass-card" style="border-radius:20px;overflow:hidden;width:100%;max-width:360px;display:flex;flex-direction:column;" data-name="Lava Cake" data-price="750" data-category="desserts">
+          <div style="height:220px;overflow:hidden;position:relative;background:linear-gradient(135deg,#1a0500,#0e0200);">
+            <div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:80px;">🍫</div>
+          </div>
+          <div style="padding:22px;flex:1;display:flex;flex-direction:column;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+              <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:#e5e2e1;font-weight:600;">Chocolate Lava Cake</h3>
+              <span style="color:#ffb800;font-weight:700;font-size:16px;white-space:nowrap;margin-left:8px;">Rs. 750</span>
+            </div>
+            <p style="color:#9e8f78;font-size:13px;line-height:1.65;margin-bottom:16px;flex:1;">Warm Belgian chocolate cake with a molten centre, served with vanilla bean ice cream.</p>
+            <div style="display:flex;gap:6px;margin-bottom:18px;">
+              <span style="background:rgba(255,184,0,0.08);color:#ffb800;font-size:10px;font-weight:600;padding:3px 10px;border-radius:4px;border:1px solid rgba(255,184,0,0.2);letter-spacing:0.05em;">FAN FAVOURITE</span>
+            </div>
+            <div class="card-actions">
+              <button class="add-btn" onclick="addToCart(this, 'ChocolateLavaCake', 'Chocolate Lava Cake', 750)">
+                <span class="material-symbols-outlined" style="font-size:18px;">add_shopping_cart</span> Add to Cart
+              </button>
+              <div class="in-cart-controls" id="controls-ChocolateLavaCake">
+                <button class="qty-btn" onclick="changeQty('ChocolateLavaCake', 'Chocolate Lava Cake', 750, -1)">−</button>
+                <span style="color:#ffb800;font-weight:700;font-size:16px;min-width:28px;text-align:center;" id="qty-ChocolateLavaCake">1</span>
+                <button class="qty-btn" onclick="changeQty('ChocolateLavaCake', 'Chocolate Lava Cake', 750, 1)">+</button>
+                <span style="color:#9e8f78;font-size:12px;margin-left:4px;" id="subtotal-ChocolateLavaCake">Rs. 750</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 </main>
+
 <!-- Footer -->
-<footer class="w-full bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/30 md:mr-80">
-<div class="max-w-container-max mx-auto px-gutter py-12 flex flex-col md:flex-row justify-between items-center gap-8">
-<div class="text-center md:text-left">
-<div class="font-headline-md text-headline-md text-primary mb-2">Stellar Heights</div>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">© 2024 Stellar Heights. All rights reserved. Crafted for Nocturnal Elegance.</p>
-</div>
-<div class="flex flex-wrap justify-center gap-6">
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Liquor License</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Careers</a>
-</div>
-</div>
+<footer style="background:#0e0e0e;border-top:1px solid rgba(81,69,50,0.3);padding:48px 24px;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;">
+    <div>
+      <div style="font-family:'Playfair Display',serif;font-size:22px;color:#ffb800;margin-bottom:8px;">Stellar Heights</div>
+      <p style="color:#514532;font-size:13px;max-width:320px;line-height:1.6;">© 2024 Stellar Heights. All rights reserved. Crafted for Nocturnal Elegance.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:20px;">
+      <a href="#" style="color:#9e8f78;font-size:12px;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;">Privacy Policy</a>
+      <a href="#" style="color:#9e8f78;font-size:12px;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;">Terms of Service</a>
+      <a href="#" style="color:#9e8f78;font-size:12px;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;">Careers</a>
+    </div>
+  </div>
 </footer>
-</body></html>
+
+<script>
+// ─── State ────────────────────────────────────────────────────
+const WHATSAPP_NUMBER = '923001234567'; // ← your WhatsApp number
+const STORAGE_KEY = 'stellarHeightsCart';
+
+// ─── LocalStorage helpers ─────────────────────────────────────
+function saveCart() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); } catch(e) {}
+}
+function loadCart() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch(e) { return {}; }
+}
+function clearCart() {
+  try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+}
+
+// ─── Live cart object (initialised from localStorage) ─────────
+const cart = loadCart();
+
+// ─── Restore card UI for any items already in cart ────────────
+function restoreCardUI() {
+  Object.entries(cart).forEach(([id, { qty, price }]) => {
+    const addBtn  = document.querySelector(`[onclick*="addToCart"][onclick*="'${id}'"]`);
+    const controls = document.getElementById('controls-' + id);
+    const qtyEl   = document.getElementById('qty-' + id);
+    const subEl   = document.getElementById('subtotal-' + id);
+    if (addBtn)   addBtn.style.display = 'none';
+    if (controls) controls.style.display = 'flex';
+    if (qtyEl)    qtyEl.textContent = qty;
+    if (subEl)    subEl.textContent = 'Rs. ' + (price * qty).toLocaleString();
+  });
+}
+
+// ─── Sidebar ──────────────────────────────────────────────────
+function openCart() {
+  document.getElementById('cartSidebar').classList.add('open');
+  document.getElementById('overlay').classList.add('show');
+}
+function closeCart() {
+  document.getElementById('cartSidebar').classList.remove('open');
+  document.getElementById('overlay').classList.remove('show');
+}
+document.getElementById('cartToggle').addEventListener('click', openCart);
+
+// ─── Add to Cart ──────────────────────────────────────────────
+function addToCart(btn, id, label, price) {
+  cart[id] = { label, price, qty: 1 };
+  btn.style.display = 'none';
+  const controls = document.getElementById('controls-' + id);
+  controls.style.display = 'flex';
+  document.getElementById('qty-' + id).textContent = 1;
+  document.getElementById('subtotal-' + id).textContent = 'Rs. ' + price.toLocaleString();
+  saveCart();
+  updateCart();
+  openCart();
+}
+
+// ─── Change Qty on Card ───────────────────────────────────────
+function changeQty(id, label, price, delta) {
+  if (!cart[id]) return;
+  cart[id].qty += delta;
+  if (cart[id].qty <= 0) {
+    delete cart[id];
+    const controls = document.getElementById('controls-' + id);
+    controls.style.display = 'none';
+    controls.previousElementSibling.style.display = 'flex';
+  } else {
+    document.getElementById('qty-' + id).textContent = cart[id].qty;
+    document.getElementById('subtotal-' + id).textContent =
+      'Rs. ' + (price * cart[id].qty).toLocaleString();
+  }
+  saveCart();
+  updateCart();
+}
+
+// ─── Change Qty from Sidebar ──────────────────────────────────
+function cartQty(id, price, delta) {
+  if (!cart[id]) return;
+  cart[id].qty += delta;
+  if (cart[id].qty <= 0) {
+    delete cart[id];
+    const controls = document.getElementById('controls-' + id);
+    if (controls) {
+      controls.style.display = 'none';
+      controls.previousElementSibling.style.display = 'flex';
+    }
+  } else {
+    const qtyEl = document.getElementById('qty-' + id);
+    const subEl = document.getElementById('subtotal-' + id);
+    if (qtyEl) qtyEl.textContent = cart[id].qty;
+    if (subEl) subEl.textContent = 'Rs. ' + (price * cart[id].qty).toLocaleString();
+  }
+  saveCart();
+  updateCart();
+}
+
+// ─── Render Cart Sidebar ──────────────────────────────────────
+function updateCart() {
+  const items = Object.entries(cart);
+  const totalCount = items.reduce((s, [, v]) => s + v.qty, 0);
+  const badge = document.getElementById('cartBadge');
+  badge.textContent = totalCount;
+  badge.classList.toggle('visible', totalCount > 0);
+
+  const container = document.getElementById('cartItems');
+  const empty = document.getElementById('emptyCart');
+
+  if (items.length === 0) {
+    container.innerHTML = '';
+    empty.style.display = 'flex';
+    document.getElementById('cartTotal').textContent = 'Rs. 0';
+    document.getElementById('cartSubtotal').textContent = 'Rs. 0';
+    return;
+  }
+
+  empty.style.display = 'none';
+  container.innerHTML = '';
+  let total = 0;
+
+  items.forEach(([id, { label, price, qty }]) => {
+    total += price * qty;
+    const el = document.createElement('div');
+    el.className = 'cart-item-enter';
+    el.style.cssText = 'background:rgba(32,31,31,0.7);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:14px;display:flex;gap:12px;align-items:center;margin-bottom:10px;';
+    el.innerHTML = `
+      <div style="flex:1;min-width:0;">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:14px;color:#e5e2e1;margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${label}</div>
+        <div style="color:#9e8f78;font-size:12px;">Rs. ${price.toLocaleString()} × ${qty}</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
+        <button class="qty-btn" onclick="cartQty('${id}',${price},-1)" style="width:26px;height:26px;">−</button>
+        <span style="color:#ffb800;font-weight:700;min-width:20px;text-align:center;">${qty}</span>
+        <button class="qty-btn" onclick="cartQty('${id}',${price},1)" style="width:26px;height:26px;">+</button>
+        <div style="color:#ffb800;font-weight:700;font-size:14px;min-width:72px;text-align:right;">Rs. ${(price*qty).toLocaleString()}</div>
+      </div>`;
+    container.appendChild(el);
+  });
+
+  document.getElementById('cartSubtotal').textContent = 'Rs. ' + total.toLocaleString();
+  document.getElementById('cartTotal').textContent = 'Rs. ' + total.toLocaleString();
+}
+
+// ─── WhatsApp — send order then wipe cart ─────────────────────
+function sendWhatsApp() {
+  const items = Object.entries(cart);
+  if (items.length === 0) { alert('Your cart is empty! Add some items first.'); return; }
+
+  let msg = '🍽️ *New Order — Stellar Heights*\n\n';
+  let total = 0;
+  items.forEach(([, { label, price, qty }]) => {
+    const sub = price * qty;
+    total += sub;
+    msg += `▪ ${label} × ${qty} = Rs. ${sub.toLocaleString()}\n`;
+  });
+  msg += `\n━━━━━━━━━━━━━━\n💰 *Total: Rs. ${total.toLocaleString()}*\n\n📍 Please confirm my order. Thank you!`;
+
+  // Open WhatsApp
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+
+  // ── Clear cart after order is placed ──────────────────────────
+  // Reset all card UIs first
+  items.forEach(([id]) => {
+    const controls = document.getElementById('controls-' + id);
+    if (controls) {
+      controls.style.display = 'none';
+      const addBtn = controls.previousElementSibling;
+      if (addBtn) addBtn.style.display = 'flex';
+    }
+    const qtyEl = document.getElementById('qty-' + id);
+    if (qtyEl) qtyEl.textContent = 1;
+  });
+
+  // Wipe in-memory cart and localStorage
+  Object.keys(cart).forEach(k => delete cart[k]);
+  clearCart();
+  updateCart();
+  closeCart();
+
+  // Show a brief order-placed toast
+  showToast('✅ Order sent! Your cart has been cleared.');
+}
+
+// ─── Toast notification ───────────────────────────────────────
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.textContent = msg;
+  t.style.cssText = `
+    position:fixed; bottom:32px; left:50%; transform:translateX(-50%) translateY(20px);
+    background:#1a2e1a; border:1px solid #25D366; color:#fff;
+    font-family:'Montserrat',sans-serif; font-size:13px; font-weight:600;
+    padding:14px 24px; border-radius:12px; z-index:9999;
+    box-shadow:0 8px 32px rgba(0,0,0,0.5);
+    opacity:0; transition:all 0.35s ease; white-space:nowrap;`;
+  document.body.appendChild(t);
+  requestAnimationFrame(() => {
+    t.style.opacity = '1';
+    t.style.transform = 'translateX(-50%) translateY(0)';
+  });
+  setTimeout(() => {
+    t.style.opacity = '0';
+    t.style.transform = 'translateX(-50%) translateY(10px)';
+    setTimeout(() => t.remove(), 400);
+  }, 3500);
+}
+
+// ─── Search ───────────────────────────────────────────────────
+function filterMenu() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  document.querySelectorAll('.menu-section').forEach(section => {
+    const sectionCat = (section.dataset.category || '').toLowerCase();
+    const sectionMatch = q === '' || sectionCat.includes(q);
+    if (sectionMatch) {
+      section.style.display = '';
+      section.querySelectorAll('.glass-card').forEach(c => c.style.display = '');
+    } else {
+      let anyVisible = false;
+      section.querySelectorAll('.glass-card').forEach(card => {
+        const name = (card.dataset.name || '').toLowerCase();
+        const visible = name.includes(q);
+        card.style.display = visible ? '' : 'none';
+        if (visible) anyVisible = true;
+      });
+      section.style.display = anyVisible ? '' : 'none';
+    }
+  });
+}
+
+// ─── Category Filter ──────────────────────────────────────────
+function filterCategory(cat, btn) {
+  document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('searchInput').value = '';
+  document.querySelectorAll('.menu-section').forEach(section => {
+    const sectionCat = section.dataset.category;
+    section.style.display = (cat === 'all' || sectionCat === cat) ? '' : 'none';
+    section.querySelectorAll('.glass-card').forEach(c => c.style.display = '');
+  });
+}
+
+// ─── Init — restore saved cart on page load ───────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  restoreCardUI();
+  updateCart();
+});
+</script>
+</body>
+</html>
